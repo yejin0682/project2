@@ -19,7 +19,7 @@ public class ProductDAO {
 	private Connection getConnection() throws Exception{
 		Connection conn=null;
 		Class.forName("com.mysql.cj.jdbc.Driver");
-		 conn =DriverManager.getConnection("jdbc:mysql://localhost:3306/project2?characterEncoding=UTF-8"+"&serverTimezone=UTC","root","tiger");
+		 conn =DriverManager.getConnection("jdbc:mysql://localhost/kok07227?characterEncoding=UTF-8"+"&serverTimezone=UTC","kok07227","yejin020811");
 		return conn;
 	}
 	
