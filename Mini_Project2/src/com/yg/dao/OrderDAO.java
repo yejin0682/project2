@@ -49,7 +49,7 @@ public class OrderDAO {
 		try {
 			conn = getConnection();
 			String sql = "select o.*, p.price " + 
-					"from project2.order o " + 
+					"from order o " + 
 					"left outer join product p on o.pno = p.pno " + 
 					"order by obno desc;";
 			pstmt = conn.prepareStatement(sql);
@@ -83,7 +83,7 @@ public class OrderDAO {
 		
 		try {
 			conn = getConnection();
-			String sql = "select o.*, p.price from project2.order o " + 
+			String sql = "select o.*, p.price from order o " + 
 					"left outer join product p on o.pno = p.pno " + 
 					"where o.orderdate like '%"+date+"%'";
 			pstmt = conn.prepareStatement(sql);
@@ -115,7 +115,7 @@ public class OrderDAO {
 		int dailySales = 0;
 		try {
 			conn = getConnection();
-			String sql = "select sum(p.price) from project2.order o " + 
+			String sql = "select sum(p.price) from order o " + 
 					"left outer join product p on o.pno = p.pno " + 
 					"where o.orderdate like '%"+date+"%'";
 			pstmt = conn.prepareStatement(sql);
@@ -144,7 +144,7 @@ public class OrderDAO {
 			e.printStackTrace();
 		}
 		
-		String sql="select a.qty, b.price from project2.order a, project2.product b where a.pno=b.pno and a.orderdate >=substring('"+date1+"',1,10) and a.orderdate <=substring('"+date2+"',1,10)";
+		String sql="select a.qty, b.price from order a, product b where a.pno=b.pno and a.orderdate >=substring('"+date1+"',1,10) and a.orderdate <=substring('"+date2+"',1,10)";
 		int totalprice=0;
 		int qty=0;
 		int price=0;
@@ -183,7 +183,7 @@ public class OrderDAO {
 			e.printStackTrace();
 		}
 		
-		String sql="select a.qty, b.price from project2.order a, project2.product b where a.pno=b.pno and a.orderdate ='"+date+"'";
+		String sql="select a.qty, b.price from order a, product b where a.pno=b.pno and a.orderdate ='"+date+"'";
 		int totalprice=0;
 		int qty=0;
 		int price=0;
@@ -222,7 +222,7 @@ public class OrderDAO {
 			e.printStackTrace();
 		}
 		
-		String sql="select a.qty, b.price from project2.order a, project2.product b where a.pno=b.pno and a.orderdate like '%"+date+"%'";
+		String sql="select a.qty, b.price from order a, product b where a.pno=b.pno and a.orderdate like '%"+date+"%'";
 		int totalprice=0;
 		int qty=0;
 		int price=0;
@@ -280,7 +280,7 @@ public class OrderDAO {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		sql="insert into project2.order(pno,qty,ID,color,size) values(?,?,?,?,?)";
+		sql="insert into order(pno,qty,ID,color,size) values(?,?,?,?,?)";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -327,7 +327,7 @@ public class OrderDAO {
 			e.printStackTrace();
 		}
 		
-		String sql="select * from project2.order where ID='"+ID+"' order by orderdate desc limit 1";
+		String sql="select * from order where ID='"+ID+"' order by orderdate desc limit 1";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -364,7 +364,7 @@ public class OrderDAO {
 			e.printStackTrace();
 		}
 		
-		String sql="insert into project2.order(pno,qty,ID,color,size) values(?,?,?,?,?)";
+		String sql="insert into order(pno,qty,ID,color,size) values(?,?,?,?,?)";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -404,7 +404,7 @@ public class OrderDAO {
 			e.printStackTrace();
 		}
 		
-		String sql="select * from project2.order where ID='"+ID+"' order by obno desc";
+		String sql="select * from order where ID='"+ID+"' order by obno desc";
 		
 		try {
 			pstmt=conn.prepareStatement(sql);

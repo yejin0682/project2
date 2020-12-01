@@ -43,7 +43,7 @@ public class ReviewDAO {
 		try {
 			conn = getConnection();
 			String sql = "select o.obno, p.image, p.pname, o.color, o.size " + 
-					"from project2.order o " + 
+					"from order o " + 
 					"left outer join product p on o.pno = p.pno " + 
 					"where o.obno="+obno;
 			pstmt = conn.prepareStatement(sql);
@@ -92,7 +92,7 @@ public class ReviewDAO {
 			e.printStackTrace();
 		}
 		
-		String sql="update project2.order set review=2 where obno="+obno;
+		String sql="update order set review=2 where obno="+obno;
 		
 		try {
 			pstmt=conn.prepareStatement(sql);
@@ -178,7 +178,7 @@ public class ReviewDAO {
 			
 			sql = "select p.pno, p.image, p.pname, r.* , o.color, o.size from reviewboard r " + 
 					"left outer join product p on r.pno = p.pno " + 
-					"left outer join project2.order o on o.obno = r.obno " + 
+					"left outer join order o on o.obno = r.obno " + 
 					"where rbno="+rbno;
 			pstmt = conn.prepareStatement(sql);
 			rs = pstmt.executeQuery();
