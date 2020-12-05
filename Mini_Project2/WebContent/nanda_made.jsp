@@ -31,6 +31,7 @@
       text-align: left;
    }
    #content {
+   		width: 66.5%;
        display: inline-block;
         -webkit-box-pack: justify;
       flex-direction: row;

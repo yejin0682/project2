@@ -19,7 +19,7 @@
 	    text-align: center;
 	}
 	#content {
-	    width: min-content;
+	    width: 70%;
         height: fit-content;
         margin: 0 auto;
 	    margin-top: 50px;
